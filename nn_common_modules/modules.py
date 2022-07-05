@@ -523,7 +523,10 @@ class OctaveDenseBlock(nn.Module):
 
         elif se_block_type == se.SELayer.CSSE.value:
             self.SELayer = se.ChannelSpatialSELayer(params['num_filters'])
-        else:abdominal_segmentation_2] - 1) / 2)
+        else:
+            self.SELayer = None
+        
+        padding_h = int((params['kernel_h'] - 1) / 2)
         padding_w = int((params['kernel_w'] - 1) / 2)
 
         conv1_out_size = int(params['num_channels'] + params['num_filters'])
